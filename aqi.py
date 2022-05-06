@@ -8,6 +8,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report,accuracy_score
+from sklearn.ensemble import ExtraTreesRegressor
+
 st.title("AQI Analysis")
 st.write("Dataset")
 
@@ -66,12 +70,8 @@ df1=pd.get_dummies(df1,drop_first=True)
 X=df1.drop(['AQI'],axis=1)
 y=df1['AQI']
 
-!pip install sklearn
-from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)
 
-from sklearn.metrics import classification_report,accuracy_score
-from sklearn.ensemble import ExtraTreesRegressor
 model3=ExtraTreesRegressor()
 model3.fit(X_train,y_train)
 accuracy = model3.score(X_test,y_test)
