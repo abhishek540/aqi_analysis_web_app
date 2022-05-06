@@ -14,7 +14,7 @@ st.write("Dataset")
 
 
 
-df = pd.read_csv(".\\archive\\city_day.csv",sep=",")
+df = pd.read_csv("city_day.csv",sep=",")
 
 st.write("Top 5 Dataset",df.head())
 
